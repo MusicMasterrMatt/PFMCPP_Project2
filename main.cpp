@@ -16,14 +16,13 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
+ int / float / bool / double / char / unsigned int
+
+ (extra) is void / vector / static / auto not primitives?  
  
  
  
- 
- 
- 
- 
- 
+
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
     a) give each variable declaration an initial value
@@ -58,7 +57,31 @@ video: Chapter 2 - Part 3
 void variableDeclarations()
 {
     //example:
-    int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
+    int number = 2;
+    int number2 = number + 3;
+    int output = 10;
+    
+    float gain = 0.5f;
+    float threshold = -0.10f;
+    float ratio = 4.0f;
+    
+    bool bypass = false;
+    bool systemOn = true;
+    bool bypassComp = true;
+
+    double importantProcess = 0.2;
+    double freq = 100;
+    double numbers = 3;
+    
+ //unsure about how and why double and unsigned int 
+//my char's are errors
+    //char mar = "a";
+    //char money = "1";
+    //char answer = "N";
+//unsigned
+    //unsigned int number.get = 2;
+
+  //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
     
 
     

@@ -18,7 +18,7 @@ video: Chapter 2 - Part 3
  
  int / float / bool / double / char / unsigned int
 
- (extra) is void / vector / static / auto not primitives?  
+ vector / static / auto not primitives?  
  
  
  
@@ -57,35 +57,38 @@ video: Chapter 2 - Part 3
 void variableDeclarations()
 {
     //example:
-    int number = 2;
-    int number2 = number + 3;
-    int output = 10;
+    int number;
+    int number2;
+    int output;
     
-    float gain = 0.5f;
-    float threshold = -0.10f;
-    float ratio = 4.0f;
     
-    bool bypass = false;
-    bool systemOn = true;
-    bool bypassComp = true;
+    float gain;
+    float threshold;
+    float ratio;
+    
+    bool bypass;
+    bool systemOn;
+    bool bypassComp;
 
-    double importantProcess = 0.2;
-    double freq = 100;
-    double numbers = 3;
+    double importantProcess;
+    double freq;
+    double numbers;
     
  //unsure about how and why double and unsigned int 
-//my char's are errors
-    //char mar = "a";
-    //char money = "1";
-    //char answer = "N";
-//unsigned
-    //unsigned int number.get = 2;
 
+    char jam;
+    char toast;
+    char sugar; 
+//unsigned
+    unsigned int Ad;
+    unsigned int A1;
+    unsigned int Ab;
+    //(all are undefined values just the Declarations)
   //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
     
 
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, number2, output, gain, threshold, ratio, bypass, systemOn, bypassComp, importantProcess, freq, numbers, jam, toast, sugar,Ad, A1,Ab); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -101,30 +104,63 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 
 /*
  1)
- */
+ */ 
+ 
 
+    bool compression (int x = 12, int gain = 1)
+   {
+        ignoreUnused(compression, x, gain);
+        return {};
+   } 
 /*
  2)
  */
+    int parameters (float gain = 0.5f, int threshold = -50, bool peak = true, int ratio = 4)
+    {
+
+ ignoreUnused(gain, threshold, peak, ratio);
+ return {};
+
+    }
 
 /*
  3)
  */
-
+    bool bypass (int freq = 120)
+    {
+        ignoreUnused(freq);
+        return {};
+    }
 /*
  4)
  */
-
+    double importantProcess (int freq = 100, int peakFilter = 10) 
+    {
+        ignoreUnused(freq, peakFilter);
+        return {};
+    }
 /*
  5)
  */
-
+   char ingrediantUnits (char toast = 2, char jam = 3)
+    {
+        ignoreUnused(toast, jam);
+        return {};
+    }
+     
 /*
  6)
  */
 
+ int grades (char tom = 2, char harry = 1)
+ {
+     ignoreUnused(tom, harry);
+     return int {};
+ }
+
+ 
 /*
- 7)
+ 7) 
  */
 
 /*
@@ -159,27 +195,26 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    int params = compression(12, 1); 
     //2)
-    
+    auto vocalcomp = parameters(1.f,60, false, 6);
     //3)
-    
+    int LFO = bypass(120);
     //4)
-    
+    double toughDSP = importantProcess(200,20);
     //5)
-    
+    char food = ingrediantUnits(2,1);
     //6)
-    
+    float gradesAndAverages = grades(2+1)/2;
     //7)
-    
-    //8)
-    
+  
     //9)
     
     //10)
     
     
-    ignoreUnused(carRented);
+    ignoreUnused(carRented,params,vocalcomp,LFO,toughDSP,food,gradesAndAverages);
     std::cout << "good to go!" << std::endl;
+    std::cout << "params set!" << std::endl;
     return 0;    
 }

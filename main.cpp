@@ -18,12 +18,6 @@ video: Chapter 2 - Part 3
  
  int / float / bool / double / char / unsigned int
 
- vector / static / auto not primitives?  
- 
- 
- 
-
- 
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
     a) give each variable declaration an initial value
         - just ignore wchar_t. you do not need to declare 3 variables of type 'wchar_t'
@@ -57,40 +51,46 @@ video: Chapter 2 - Part 3
 void variableDeclarations()
 {
     //example:
-    int number;
-    int number2;
-    int output;
-    
-    
-    float gain;
-    float threshold;
-    float ratio;
-    
-    bool bypass;
-    bool systemOn;
-    bool bypassComp;
+    int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
+  
 
-    double importantProcess;
-    double freq;
-    double numbers;
+    int number1 = 2 ;
+    int input = 4;
+    int output = input + 1;
+    int greenOpacity = 100;
+ 
+
+    float gain = 4.f;
+    float threshold = -15.f;
+    float ratio = 4.f;
+    float drive = 100.f;
     
+    bool bypass = false;
+    bool systemOn = true;
+    bool bypassComp = true;
+    bool GUI = false;
+    bool green = false;
+
+    double importantProcess = 40;
+    double freq = 18;
+    double numbers = 2000;
  //unsure about how and why double and unsigned int 
-
-    char jam;
-    char toast;
-    char sugar; 
+    char jam = 6;
+    char toast = 2;
+    char sugar =4; 
 //unsigned
-    unsigned int Ad;
-    unsigned int A1;
-    unsigned int Ab;
+    unsigned int Ad = 1; 
+    unsigned int A1 = 2;
+    unsigned int Ab = 3;
+ //auto for one character letters   
+    auto action = 1;
+    auto jump = 2;
+    auto changeWeapon = 3;
     //(all are undefined values just the Declarations)
-  //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
+ 
     
-
-    
-    ignoreUnused(number, number2, output, gain, threshold, ratio, bypass, systemOn, bypassComp, importantProcess, freq, numbers, jam, toast, sugar,Ad, A1,Ab); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, number1, input, output, gain, threshold, ratio, bypass, systemOn, bypassComp, importantProcess, freq, numbers, jam, toast, sugar,Ad, A1,Ab, drive, GUI, green, greenOpacity,action,jump,changeWeapon); 
 }
-
 /*
  10 functions
  example:
@@ -100,80 +100,84 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 { 
     ignoreUnused(rentalDuration, carType); //passing each function parameter to the ignoreUnused() function
     return {}; //if your function returns something other than void, add 'return {};' at the end of it.
-} 
-
+}
 /*
  1)
  */ 
- 
-
-    bool compression (int x = 12, int gain = 1)
-   {
-        ignoreUnused(compression, x, gain);
-        return {};
-   } 
+ bool compression (int x = 12, int gain = 1)
+{
+    ignoreUnused(compression, x, gain);
+    return {};
+} 
 /*
  2)
  */
-    int parameters (float gain = 0.5f, int threshold = -50, bool peak = true, int ratio = 4)
-    {
-
- ignoreUnused(gain, threshold, peak, ratio);
- return {};
-
-    }
+int parameters (float gain = 0.5f, int threshold = -50, bool peak = true, int ratio = 4)
+{
+    ignoreUnused(gain, threshold, peak, ratio);
+    return {};
+}
 
 /*
  3)
  */
-    bool bypass (int freq = 120)
-    {
-        ignoreUnused(freq);
-        return {};
-    }
+bool bypass (int freq = 120)
+{
+    ignoreUnused(freq);
+    return {};
+}
 /*
  4)
  */
-    double importantProcess (int freq = 100, int peakFilter = 10) 
-    {
-        ignoreUnused(freq, peakFilter);
-        return {};
-    }
+double importantProcess (int freq = 100, int peakFilter = 10) 
+{
+    ignoreUnused(freq, peakFilter);
+    return {};
+}
 /*
  5)
  */
-   char ingrediantUnits (char toast = 2, char jam = 3)
-    {
-        ignoreUnused(toast, jam);
-        return {};
-    }
+char ingrediantUnits (char toast = 2, char jam = 3)
+{
+    ignoreUnused(toast, jam);
+    return {};
+}
      
 /*
  6)
  */
+int grades (char tom = 2, char harry = 1)
+{
+    ignoreUnused(tom, harry);
+    return int {};
+}
+// 7) 
 
- int grades (char tom = 2, char harry = 1)
- {
-     ignoreUnused(tom, harry);
-     return int {};
- }
+float distortion (float drive = 100.5f, int gain = 4)
+{
+    ignoreUnused(drive, gain);
+    return float {};
+}
 
- 
-/*
- 7) 
- */
+// 8)
+bool layoutOn (bool GUI = false, bool green = false, int greenOpacity = 100)   
+{
+    ignoreUnused(GUI, green, greenOpacity);
+    return {};
+}
 
-/*
- 8)
- */
-
-/*
- 9)
- */
-
-/*
- 10)
- */
+// 9)
+float distanceTravelled (float walking = 8040.5f, float running = 400.3f)
+{
+    ignoreUnused(walking, running);
+    return float {};
+}
+// 10)
+int gameControls (int action = 1, int jump = 2, int changeWeapon = 3)
+{
+    ignoreUnused(action, jump, changeWeapon);
+    return int {};
+} 
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -197,7 +201,7 @@ int main()
     //1)
     int params = compression(12, 1); 
     //2)
-    auto vocalcomp = parameters(1.f,60, false, 6);
+    auto vocalcomp = parameters(1.f,60.f, false, 6);
     //3)
     int LFO = bypass(120);
     //4)
@@ -207,14 +211,21 @@ int main()
     //6)
     float gradesAndAverages = grades(2+1)/2;
     //7)
-  
+    float distortionLevel = distortion(100.f,4.f);
     //9)
-    
+    bool turnLayoutOn = layoutOn(true, true, 50);
     //10)
+    float distanceToday = distanceTravelled(400, 200.f);
+
+    int assingControls = gameControls (1,2,3);
     
-    
-    ignoreUnused(carRented,params,vocalcomp,LFO,toughDSP,food,gradesAndAverages);
+    ignoreUnused(carRented,params,vocalcomp,LFO,toughDSP,food,gradesAndAverages,distortionLevel,turnLayoutOn,distanceToday, assingControls);
     std::cout << "good to go!" << std::endl;
     std::cout << "params set!" << std::endl;
+    std::cout << "LFO ready!" << std::endl;
+    std::cout << "processing!" << std::endl;
+    std::cout << "beep, boop beep, making food!" << std::endl;
+    std::cout << "calculating grades" << std::endl;
+    std::cout << "ect" << std::endl;
     return 0;    
 }

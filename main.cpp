@@ -52,14 +52,11 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
-  
-
     int number1 = 2 ;
     int input = 4;
     int output = input + 1;
     int greenOpacity = 100;
  
-
     float gain = 4.f;
     float threshold = -15.f;
     float ratio = 4.f;
@@ -87,9 +84,8 @@ void variableDeclarations()
     auto jump = 2;
     auto changeWeapon = 3;
     //(all are undefined values just the Declarations)
- 
-    
-    ignoreUnused(number, number1, input, output, gain, threshold, ratio, bypass, systemOn, bypassComp, importantProcess, freq, numbers, jam, toast, sugar,Ad, A1,Ab, drive, GUI, green, greenOpacity,action,jump,changeWeapon); 
+   
+    ignoreUnused(number, number1, input, output, gain, threshold, ratio, bypass, systemOn, bypassComp, importantProcess, freq, numbers, jam, toast, sugar,Ad, A1, Ab, drive, GUI, green, greenOpacity, action, jump, changeWeapon); 
 }
 /*
  10 functions
@@ -201,31 +197,38 @@ int main()
     //1)
     int params = compression(12, 1); 
     //2)
-    auto vocalcomp = parameters(1.f,60.f, false, 6);
+    auto vocalcomp = parameters(1.f, 60.f, false, 6);
     //3)
     int LFO = bypass(120);
     //4)
-    double toughDSP = importantProcess(200,20);
+    double toughDSP = importantProcess(200, 20);
     //5)
-    char food = ingrediantUnits(2,1);
+    char food = ingrediantUnits(2, 1);
     //6)
-    float gradesAndAverages = grades(2+1)/2;
+    float gradesAndAverages = grades(2 + 1) / 2;
     //7)
-    float distortionLevel = distortion(100.f,4.f);
+    float distortionLevel = distortion(100.f, 4.f);
     //9)
     bool turnLayoutOn = layoutOn(true, true, 50);
     //10)
     float distanceToday = distanceTravelled(400, 200.f);
 
-    int assingControls = gameControls (1,2,3);
+    int assigningControls = gameControls (1, 2, 3);
     
-    ignoreUnused(carRented,params,vocalcomp,LFO,toughDSP,food,gradesAndAverages,distortionLevel,turnLayoutOn,distanceToday, assingControls);
+    ignoreUnused(carRented, params, vocalcomp, LFO, toughDSP, food, gradesAndAverages, distortionLevel, turnLayoutOn, distanceToday, assigningControls);
+
     std::cout << "good to go!" << std::endl;
+
     std::cout << "params set!" << std::endl;
+
     std::cout << "LFO ready!" << std::endl;
+
     std::cout << "processing!" << std::endl;
+
     std::cout << "beep, boop beep, making food!" << std::endl;
+
     std::cout << "calculating grades" << std::endl;
+
     std::cout << "ect" << std::endl;
     return 0;    
 }
